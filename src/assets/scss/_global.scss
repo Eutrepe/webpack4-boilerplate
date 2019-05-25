@@ -1,0 +1,78 @@
+html,
+body,
+img,
+figure {
+    max-width: 100%;
+    // background-image: url('../images/image-name.jpg');
+}
+
+html,
+body {
+    // overflow-x: hidden;
+    -ms-overflow-style: scrollbar;
+    -webkit-font-smoothing: antialiased;
+    background-color: white;
+}
+
+
+body {
+    padding-right: 0 !important;
+    font-weight: 400;
+    background-repeat: no-repeat;
+    color: #000;
+    min-height: 100vh;
+
+    // hack for slider in iframe
+    width: 1px;
+    min-width: 100%;
+}
+
+
+a,
+a:hover,
+a:active,
+a:link,
+a:visited {
+    color: inherit;
+}
+
+a {
+    transition: all .3s ease-in-out;
+}
+
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+* {
+    outline: none;
+}
+
+
+html {
+    font-size: 50%;
+}
+
+@media screen and (min-width: 768px) {
+    html {
+        font-size: 55.5555%
+    }
+}
+
+@media screen and (min-width: 992px) {
+  html {
+      font-size: 62.5%
+  }
+}
+
+
+
+
+.page-wrapper {
+    overflow: hidden;
+    min-height: 100vh;
+    position: relative;
+}
