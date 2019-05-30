@@ -67,12 +67,13 @@ module.exports = {
             },
             {
                 test: /\.js$/,
-                exclude: /node_modules/,
+                exclude: /(node_modules|bower_components)/,
                 use: [
                     {
                         loader: 'babel-loader', 
                         options: {
-                          presets: ['@babel/preset-env']  //Preset used for env setup
+                          presets: ['@babel/preset-env'],  //Preset used for env setup
+                          plugins: ['@babel/plugin-proposal-object-rest-spread']
                          }
                     }
                 ]
@@ -125,7 +126,7 @@ module.exports = {
         ]
     },
     plugins: [
-        new CleanWebpackPlugin('web'),
+        new CleanWebpackPlugin(),
         new webpack.ProvidePlugin({
             $: "jquery",
             jQuery: "jquery"
