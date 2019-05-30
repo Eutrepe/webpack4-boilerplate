@@ -8,6 +8,7 @@ const precss = require('precss');
 const webpack = require('webpack');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 const devMode = process.env.NODE_ENV !== 'production';
 
@@ -30,7 +31,8 @@ module.exports = {
             minSize: 10000
         },
         minimizer: [
-            new OptimizeCSSAssetsPlugin({})
+            new OptimizeCSSAssetsPlugin({}),
+            new UglifyJsPlugin()
         ]
     },
     devServer: devMode ? {
