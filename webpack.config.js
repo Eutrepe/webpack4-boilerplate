@@ -26,7 +26,7 @@ module.exports = {
         splitChunks: {
             chunks: 'all',
             name: function(module) {
-                return 'vendors'; 
+                return 'vendors';
             },
             minSize: 10000
         },
@@ -46,8 +46,8 @@ module.exports = {
         headers: {
             'Access-Control-Allow-Origin': '*',
         },
-        stats: { 
-            colors: true 
+        stats: {
+            colors: true
         },
         historyApiFallback: true,
         overlay: {
@@ -72,7 +72,7 @@ module.exports = {
                 exclude: /(node_modules|bower_components)/,
                 use: [
                     {
-                        loader: 'babel-loader', 
+                        loader: 'babel-loader',
                         options: {
                           presets: ['@babel/preset-env'],  //Preset used for env setup
                           plugins: ['@babel/plugin-proposal-object-rest-spread']
@@ -124,7 +124,11 @@ module.exports = {
                         outputPath: 'fonts/'
                     }
                 }]
-            }
+            },
+            {
+                test: /\.(html)$/,
+                use: ['html-loader']
+             }
         ]
     },
     plugins: [
