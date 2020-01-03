@@ -38,11 +38,16 @@ module.exports = {
     devServer: devMode ? {
         contentBase: path.resolve(__dirname, './'),
         watchContentBase: true,
+        watchOptions: {
+            ignored: /node_modules/
+        },
+        transportMode: 'ws',
         index: 'index.html',
-        port: 1238,
+        port: 9000,
         // host: '10.0.0.142',
         // https: true,
         open: true,
+        hot: true,
         headers: {
             'Access-Control-Allow-Origin': '*',
         },
