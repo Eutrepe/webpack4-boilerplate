@@ -3,6 +3,7 @@ const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
+const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 const precss = require('precss');
 const webpack = require('webpack');
@@ -73,17 +74,19 @@ module.exports = {
                 }
             },
             {
-                test: /\.js$/,
+                test: /\.m?js$/,
                 exclude: /(node_modules|bower_components)/,
-                use: [
-                    {
-                        loader: 'babel-loader',
-                        options: {
-                          presets: ['@babel/preset-env'],  //Preset used for env setup
-                          plugins: ['@babel/plugin-proposal-object-rest-spread']
-                         }
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: [
+                        [
+                            '@babel/preset-env',
+                            { useBuiltIns: 'usage', corejs: { version: 3 } }
+                        ]
+                        ]
                     }
-                ]
+                }
             },
             {
                 test: /\.(sa|sc|c)ss$/,
@@ -136,6 +139,9 @@ module.exports = {
              }
         ]
     },
+    resolve: {
+        extensions: ['.ts', '.js']
+    },
     plugins: [
         new CleanWebpackPlugin(),
         new webpack.ProvidePlugin({
@@ -150,6 +156,7 @@ module.exports = {
             filename: 'index.html',
             chunks: ['index', 'vendors'],
             template: 'index.html',
+            inject: 'head',
             minify: {
                 collapseWhitespace: true,
                 removeComments: true,
@@ -157,6 +164,9 @@ module.exports = {
                 removeScriptTypeAttributes: true,
                 removeStyleLinkTypeAttributes: true
               }
-        })
+        }),
+        new ScriptExtHtmlWebpackPlugin({
+            defaultAttribute: 'defer'
+          })
     ],
 }
