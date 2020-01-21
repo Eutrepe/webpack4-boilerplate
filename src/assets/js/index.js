@@ -9,7 +9,8 @@ import '../scss/style.scss';
 
     $(
         () => {    
-           
+                  
+            
         }
     )    
 })();

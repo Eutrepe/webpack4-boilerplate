@@ -5,7 +5,6 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
 const autoprefixer = require('autoprefixer');
-const precss = require('precss');
 const webpack = require('webpack');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
@@ -26,7 +25,7 @@ module.exports = {
     optimization: {
         splitChunks: {
             chunks: 'all',
-            name: function(module) {
+            name: function (module) {
                 return 'vendors';
             },
             minSize: 10000
@@ -62,8 +61,7 @@ module.exports = {
         }
     } : {},
     module: {
-        rules: [
-            {
+        rules: [{
                 test: /\.(jpe?g|png|gif)$/,
                 use: {
                     loader: 'file-loader',
@@ -80,10 +78,15 @@ module.exports = {
                     loader: 'babel-loader',
                     options: {
                         presets: [
-                        [
-                            '@babel/preset-env',
-                            { useBuiltIns: 'usage', corejs: { version: 3 } }
-                        ]
+                            [
+                                '@babel/preset-env',
+                                {
+                                    useBuiltIns: 'usage',
+                                    corejs: {
+                                        version: 3
+                                    }
+                                }
+                            ]
                         ]
                     }
                 }
@@ -99,10 +102,9 @@ module.exports = {
                         loader: 'postcss-loader',
                         options: {
                             autoprefixer: {
-                                browsers: ['last 2 versions']
+                                browsers: ['> 0.3%, IE 11, not dead']
                             },
                             plugins: () => [
-                                precss,
                                 autoprefixer
                             ]
                         },
@@ -114,8 +116,7 @@ module.exports = {
             },
             {
                 test: /font-awesome\.config\.js/,
-                use: [
-                    {
+                use: [{
                         loader: 'style-loader'
                     },
                     {
@@ -136,7 +137,7 @@ module.exports = {
             {
                 test: /\.(html)$/,
                 use: ['html-loader']
-             }
+            }
         ]
     },
     resolve: {
@@ -163,10 +164,10 @@ module.exports = {
                 removeRedundantAttributes: true,
                 removeScriptTypeAttributes: true,
                 removeStyleLinkTypeAttributes: true
-              }
+            }
         }),
         new ScriptExtHtmlWebpackPlugin({
             defaultAttribute: 'defer'
-          })
+        })
     ],
 }
