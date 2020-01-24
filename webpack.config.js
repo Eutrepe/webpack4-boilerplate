@@ -39,7 +39,7 @@ module.exports = {
         contentBase: path.resolve(__dirname, './'),
         watchContentBase: true,
         watchOptions: {
-            ignored: /node_modules/
+            ignored: /(node_modules|bower_components)/
         },
         transportMode: 'ws',
         index: 'index.html',

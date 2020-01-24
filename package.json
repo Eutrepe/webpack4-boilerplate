@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "serve": "cross-env NODE_ENV=development webpack-dev-server --inline --progress --hot",
-    "build": "cross-env NODE_ENV=production webpack --progress"
+    "serve": "cross-env webpack-dev-server --inline --progress --hot --config webpack.config.dev.js",
+    "build": "cross-env webpack --progress --config webpack.config.prod.js"
   },
   "author": "Maciej Bobrowski",
   "license": "MIT",
@@ -13,6 +13,7 @@
   "devDependencies": {
     "@babel/core": "^7.7.7",
     "@babel/preset-env": "^7.7.7",
+    "@eutrepe/sync-copy-webpack-plugin": "^1.0.1",
     "autoprefixer": "^9.7.3",
     "babel-loader": "^8.0.6",
     "clean-webpack-plugin": "^2.0.2",
@@ -34,7 +35,8 @@
     "uglifyjs-webpack-plugin": "^2.2.0",
     "webpack": "^4.41.5",
     "webpack-cli": "^3.3.10",
-    "webpack-dev-server": "^3.10.1"
+    "webpack-dev-server": "^3.10.1",
+    "webpack-merge": "^4.2.2"
   },
   "dependencies": {
     "bootstrap": "^4.4.1",
