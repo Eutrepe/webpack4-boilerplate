@@ -1,11 +1,13 @@
 
-import 'bootstrap';
+// import 'bootstrap';
 // import $ from 'jquery';
-import '../../scss/style.scss';
+// import '../../scss/style.scss';
 
 
 (function () {
     'use strict';
+
+    alert('ss');
             
     fetch("uploads/i18n/test.json")
         .then(response => response.json())
@@ -13,5 +15,4 @@ import '../../scss/style.scss';
             console.log(json)
             document.getElementById('testImage').src = json.url
         });
-
 })();

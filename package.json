@@ -4,8 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "serve": "cross-env webpack-dev-server --inline --progress --hot --config webpack.config.dev.js",
-    "build": "cross-env webpack --progress --config webpack.config.prod.js"
+    "serve": "cross-env webpack-dev-server --inline --progress --hot --config webpack.dev.js",
+    "build": "cross-env webpack --progress --config webpack.prod.js",
+    "serve:tf": "cross-env NODE_ENV=development webpack-dev-server --inline --progress --hot --config webpack.tf.js",
+    "build:tf": "cross-env NODE_ENV=production webpack --progress --config webpack.tf.js"
   },
   "author": "Maciej Bobrowski",
   "license": "MIT",
