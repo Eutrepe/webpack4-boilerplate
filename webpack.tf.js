@@ -5,12 +5,18 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
 const autoprefixer = require('autoprefixer');
-const webpack = require('webpack');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 const devMode = process.env.NODE_ENV !== 'production';
+let additionalDevPlugins = [];
+
+if (devMode) {
+    additionalDevPlugins = [
+        new ScriptExtHtmlWebpackPlugin({
+            defaultAttribute: 'defer'
+        })
+    ]
+}
 
 module.exports = {
     entry: {
@@ -183,6 +189,6 @@ module.exports = {
                 removeScriptTypeAttributes: false,
                 removeStyleLinkTypeAttributes: false
             }
-        })
-    ],
+        }),
+    ].concat(additionalDevPlugins),
 }
