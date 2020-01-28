@@ -12,7 +12,7 @@
   "author": "Maciej Bobrowski",
   "license": "MIT",
   "engines": {
-    "node": ">=8.3.0"
+    "node": ">=8.6.0"
   },
   "browserslist": "> 0.3%, IE 11, not dead",
   "devDependencies": {
