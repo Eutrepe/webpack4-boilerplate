@@ -1,0 +1,108 @@
+//
+// Responsive Breakpoints
+// --------------------------------------------------
+
+$screen-xs: 480px;
+$screen-sm: 576px;
+$screen-md: 768px;
+$screen-lg: 992px;
+$screen-xl: 1200px;
+$screen-xxl: 1366px;
+$screen-big: 1600px;
+$screen-ultra: 2560px;
+
+@mixin xs-min {
+    @media only screen and (min-width: $screen-xs) {
+        @content;
+    }
+}
+
+@mixin xs-max {
+    @media only screen and (max-width: $screen-xs - 1) {
+        @content;
+    }
+}
+
+@mixin sm-min {
+    @media only screen and (min-width: $screen-sm) {
+        @content;
+    }
+}
+
+@mixin sm-max {
+    @media only screen and (max-width: $screen-sm - 1) {
+        @content;
+    }
+}
+
+@mixin md-min {
+    @media only screen and (min-width: $screen-md) {
+        @content;
+    }
+}
+
+@mixin md-max {
+    @media only screen and (max-width: $screen-md - 1) {
+        @content;
+    }
+}
+
+@mixin lg-min {
+    @media only screen and (min-width: $screen-lg) {
+        @content;
+    }
+}
+
+@mixin lg-max {
+    @media only screen and (max-width: $screen-lg - 1) {
+        @content;
+    }
+}
+
+@mixin xl-min {
+    @media only screen and (min-width: $screen-xl) {
+        @content;
+    }
+}
+
+@mixin xl-max {
+    @media only screen and (max-width: $screen-xl - 1) {
+        @content;
+    }
+}
+
+@mixin xxl-min {
+    @media only screen and (min-width: $screen-xxl) {
+        @content;
+    }
+}
+
+@mixin xxl-max {
+    @media only screen and (max-width: $screen-xxl - 1) {
+        @content;
+    }
+}
+
+@mixin big-min {
+    @media only screen and (min-width: $screen-big) {
+        @content;
+    }
+}
+
+@mixin big-max {
+    @media only screen and (max-width: $screen-big - 1) {
+        @content;
+    }
+}
+
+@mixin ultra-min {
+    @media only screen and (min-width: $screen-ultra) {
+        @content;
+    }
+}
+
+@mixin ultra-max {
+    @media only screen and (max-width: $screen-ultra - 1) {
+        @content;
+    }
+}
