@@ -1,6 +1,6 @@
 
 import 'bootstrap';
-// import $ from 'jquery';
+// import $ from 'jquery'; // deprecated
 import '../../scss/style.scss';
 
 
