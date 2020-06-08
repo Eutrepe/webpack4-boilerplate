@@ -1,7 +1,7 @@
 const path = require('path');
 
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const SyncCopyWebpackPlugin = require('@eutrepe/sync-copy-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
@@ -20,7 +20,7 @@ module.exports = {
     optimization: {
         splitChunks: {
             chunks: 'all',
-            name: function (module) {
+            name: function () {
                 return 'vendors';
             },
             minSize: 10000
@@ -134,10 +134,10 @@ module.exports = {
             },
             copyUnmodified: true,
             to: '[path][name].[ext]',
-            transform(content, path) {
+            transform(content) {
               let config = JSON.stringify(JSON.parse(content));
     
-              Object.keys(manifest).forEach((key, index) => {
+              Object.keys(manifest).forEach((key) => {
                 var re = new RegExp(key, 'g');
                 config = config.replace(re, manifest[key]);
               });
@@ -145,4 +145,4 @@ module.exports = {
             }
           }], {sync: true}),
     ],
-}
+};

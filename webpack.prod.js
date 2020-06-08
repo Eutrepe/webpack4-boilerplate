@@ -13,7 +13,7 @@ const minifyOption = {
     removeRedundantAttributes: true,
     removeScriptTypeAttributes: true,
     removeStyleLinkTypeAttributes: true
-}
+};
 
 module.exports = merge(common, {
     output: {
@@ -26,7 +26,7 @@ module.exports = merge(common, {
                 use: {
                     loader: 'file-loader',
                     options: {
-                        name: "[name].[hash].[ext]",
+                        name: '[name].[hash].[ext]',
                         outputPath: 'assets/images'
                     }
                 }

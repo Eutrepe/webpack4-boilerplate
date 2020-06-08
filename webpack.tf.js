@@ -15,7 +15,7 @@ if (devMode) {
         new ScriptExtHtmlWebpackPlugin({
             defaultAttribute: 'defer'
         })
-    ]
+    ];
 }
 
 module.exports = {
@@ -60,7 +60,7 @@ module.exports = {
                 use: {
                     loader: 'file-loader',
                     options: {
-                        name: "[name].[hash].[ext]",
+                        name: '[name].[hash].[ext]',
                         outputPath: 'assets/images'
                     }
                 }
@@ -191,4 +191,4 @@ module.exports = {
             }
         }),
     ].concat(additionalDevPlugins),
-}
+};
