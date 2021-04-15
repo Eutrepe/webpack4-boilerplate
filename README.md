@@ -1,3 +1,6 @@
+# Deprecated!!!
+use [webpack 5 boilerpalte](https://github.com/Eutrepe/webpack-boilerplate)
+
 
 ## Webpack 4 boilerplate
 
